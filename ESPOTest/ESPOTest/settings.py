@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -74,11 +75,17 @@ WSGI_APPLICATION = 'ESPOTest.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "espotest",
+        "USER": "root",
+        "PASSWORD": os.environ['SQL_DATABASE_PASSWORD'],
+        "HOST": os.environ['SQL_DATABASE'],
+        "PORT": "3306",
+        'CONN_MAX_AGE': 3600,
     }
 }
+
 
 
 # Password validation
