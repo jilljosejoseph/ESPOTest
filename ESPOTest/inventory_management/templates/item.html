@@ -11,35 +11,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Item Display {{item.item_name}} </title>
 </head>
 <body>
-    <h1>Items</h1>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Item Name</th>
-            <th>Action</th>
-        </tr>
-        {% for item in all_items %}
-        <tr>
-            <td>{{item.id}}</td> 
-            <td>{{Item.item_name}}</td> 
-            <td><a href="/items/{{item.id}}">View</a></h3></td>
-            <td><a href="/items/{{item.id}}/delete">Delete</a></h3></td>
-        </tr>
-        {% endfor %}
-    </table>
-
-    <h1> Add an Item</h1>
-
-    <form action = '/item/add' method = 'POST'> 
-        {% csrf_token %}
-        Item Name: <input type = 'text' name = 'item'><br>
-        Quantity: <input type = 'text' name = 'quantity'><br>
-        Buy Price: <input type = 'text' name = 'buy'><br>
-        Sell Price: <input type = 'text' name = 'sell'><br>
-        <input type = 'submit' value="Add">
-    </form>
+    <a href="">Home</a>
+    <h1>{{item.item_name}}</h1>
+    <br>
+    <h3>{{item.quantity}}</h3>
+    <h3>{{item.buy_price}}</h3>
+    <h3>{{item.sell_price</h3>
 </body>
 </html>
